@@ -1,8 +1,10 @@
-PREFIX dbpediaowl: <http://dbpedia.org/ontology/>
+#+ endpoint: http://live.dbpedia.org/sparql
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX dbpedia: <http://dbpedia.org/resource/>
 SELECT ?city ?capitalOf
 WHERE {
- ?city dbp:areaCode	020 . 
-  OPTIONAL { ?capitalOf dbpediaowl:capital ?city  }
-} 
+ ?city dbo:areaCode	"020"^^xsd:string .
+  OPTIONAL { ?capitalOf dbo:capital ?city  }
+}

@@ -1,16 +1,19 @@
+#+ endpoint: http://live.dbpedia.org/sparql
+
 PREFIX dbpedia: <http://dbpedia.org/resource/>
-PREFIX dbpediaowl: <http://dbpedia.org/ontology/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
 SELECT ?label WHERE {
   ?country rdfs:label ?label
     {
-    SELECT DISTINCT ?country 
+    SELECT DISTINCT ?country
     WHERE {
-      ?country a dbpediaowl:Country .
-      ?city a dbpediaowl:City ;
-        dbpediaowl:country ?country ;
+      ?country a dbo:Country .
+      ?city a dbo:City ;
+        dbo:country ?country ;
         rdfs:label ?city_name
     } GROUP BY ?country ORDER BY DESC (COUNT(DISTINCT?city)) LIMIT 1
-  } 
+  }
 }

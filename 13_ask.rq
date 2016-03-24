@@ -1,6 +1,8 @@
-PREFIX dbpediaowl: <http://dbpedia.org/ontology/>
+#+ endpoint: http://live.dbpedia.org/sparql
+
+PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/property/>
 PREFIX dbpedia: <http://dbpedia.org/resource/>
 ASK {
-	dbpedia:Amsterdam dbp:areaCode	020 .
+	dbpedia:Amsterdam dbo:areaCode	"020"^^xsd:string .
 }

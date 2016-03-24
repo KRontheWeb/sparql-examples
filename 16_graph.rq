@@ -1,9 +1,11 @@
+#+ endpoint: http://live.dbpedia.org/sparql
+
 PREFIX dbpedia: <http://dbpedia.org/resource/>
-PREFIX dbpediaowl: <http://dbpedia.org/ontology/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
 PREFIX dbp: <http://dbpedia.org/property/>
-SELECT ?g 
+SELECT ?g
 WHERE {
   GRAPH ?g {
-    dbpedia:Amsterdam dbpediaowl:areaCode [] .
+    dbpedia:Amsterdam dbo:areaCode [] .
   }
 }
