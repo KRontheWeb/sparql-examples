@@ -1,0 +1,12 @@
+#+ endpoint: http://lod.openlinksw.com/sparql
+#+ summary: All things that are the same as things with dbo:areaCode 020 on LOD Cache endpoint
+
+PREFIX dbo: 	<http://dbpedia.org/ontology/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?x ?y WHERE 
+{
+  ?x	dbo:areaCode	"020"^^xsd:string.
+  ?y    owl:sameAs      ?x .
+  FILTER (?x != ?y)
+}
